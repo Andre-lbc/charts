@@ -137,8 +137,12 @@ class Series<T, D> {
     final _areaColorFn = areaColorFn == null
         ? null
         : (int? index) => areaColorFn(data[index!], index);
-    final _colorFn =
-        colorFn == null ? null : (int? index) => colorFn(data[index!], index);
+    // INFO: This modification is necessary because original code was throwing
+    // an error when a graph series (like TimeSeriesChart) contained an empty
+    // list.
+    final _colorFn = colorFn == null || data.isEmpty
+        ? null
+        : (int? index) => colorFn(data[index!], index);
     final _dashPatternFn = dashPatternFn == null
         ? null
         : (int? index) => dashPatternFn(data[index!], index);
