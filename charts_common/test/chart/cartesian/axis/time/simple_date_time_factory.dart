@@ -1,4 +1,4 @@
-// @dart=2.9
+// @dart=2.12
 
 // Copyright 2018 the Charts project authors. Please see the AUTHORS file
 // for details.
@@ -40,5 +40,5 @@ class SimpleDateTimeFactory implements DateTimeFactory {
           year, month, day, hour, minute, second, millisecond, microsecond);
 
   @override
-  DateFormat createDateFormat(String pattern) => DateFormat(pattern);
+  DateFormat createDateFormat(String? pattern) => DateFormat(pattern);
 }
